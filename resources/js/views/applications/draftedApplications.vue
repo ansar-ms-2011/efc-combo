@@ -17,7 +17,7 @@
                 </h2>
                 <router-link
                     v-if="(store.user?.role === 'DEO' || store.user?.role === 'Center In-charge')"
-                    to="/applications/create"
+                    to="/app/applications/create"
                     class="group flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg
                        shadow-sm hover:shadow-md
                        transition-all duration-300 ease-out
