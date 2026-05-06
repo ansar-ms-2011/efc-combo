@@ -50,7 +50,7 @@
 
 
     <!-- PWA meta tags -->
-    <link rel="manifest" href="{{ asset('build/manifest.json') ?? asset('manifest.json') }}">
+    <link rel="manifest" href="{{ asset('build/manifest.webmanifest') }}">
     <meta name="theme-color" content="#ffffff">
 
     <title>{{ config('app.name', 'Laravel') }}</title>

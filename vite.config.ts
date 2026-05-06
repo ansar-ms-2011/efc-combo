@@ -1,5 +1,5 @@
 import path from 'path';
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
@@ -9,7 +9,10 @@ export default defineConfig({
     base: '/build/',
     plugins: [
         laravel({
-            input: ['resources/js/main.ts', 'resources/css/app.css'],
+            input: [
+                'resources/js/main.ts',
+                'resources/css/app.css'
+            ],
             refresh: true,
         }),
         vue({
@@ -26,19 +29,33 @@ export default defineConfig({
             filename: 'sw.js',
             registerType: 'autoUpdate',
             injectRegister: 'auto',
+
+            // CRITICAL: Output to public folder, not public/build
+            outDir: 'public',  // This puts sw.js and manifest in root public/
+
+            // Include manifest
+            includeManifestIcons: true,
+
             workbox: {
-                maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 10 MiB (add this line)
+                maximumFileSizeToCacheInBytes: 50 * 1024 * 1024,
+
+                // IMPORTANT: Don't precache everything
+                globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,svg,gif,ico,webp}'],
+                globIgnores: ['**/sw.js', '**/manifest.webmanifest'],
+
+                // Navigate to index.html for SPA routes
+                navigateFallback: '/index.html',
+                navigateFallbackDenylist: [/^\/api/, /^\/storage/, /^\/build/],
+
                 runtimeCaching: [
                     {
-                        urlPattern: ({url}) =>
-                            url.pathname.startsWith('/api/'),
-
+                        urlPattern: ({url}) => url.pathname.startsWith('/api/'),
                         handler: 'NetworkOnly',
                         options: {
                             backgroundSync: {
                                 name: 'applicationQueue',
                                 options: {
-                                    maxRetentionTime: 24 * 60, // 24 hours (minutes)
+                                    maxRetentionTime: 24 * 60,
                                 },
                             },
                         },
@@ -56,7 +73,7 @@ export default defineConfig({
                     },
                 ],
             },
-            includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
+
             manifest: {
                 name: 'E-Facilitation Centre AJK',
                 short_name: 'EF-Facilitation Centre AJK',
@@ -65,6 +82,7 @@ export default defineConfig({
                 background_color: '#ffffff',
                 display: 'standalone',
                 start_url: '/',
+                scope: '/',
                 icons: [
                     {
                         src: '/pwa/pwa-192x192.png',
@@ -90,7 +108,6 @@ export default defineConfig({
         alias: {
             '@': path.resolve(__dirname, './resources/js'),
             '@assets': path.resolve(__dirname, './resources/js/assets'),
-            '@css': path.resolve(__dirname, './resources/css'),
         },
     },
     build: {
@@ -98,9 +115,6 @@ export default defineConfig({
             external: (id) => {
                 return id === 'onnxruntime-web/webgpu' || id.includes('onnxruntime-web');
             },
-            output: {
-                // Your output config
-            }
         }
     },
     optimizeDeps: {

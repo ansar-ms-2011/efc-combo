@@ -246,13 +246,13 @@
             localStorage.setItem('user', JSON.stringify(response.data.data.user));
 
             if (store.user?.roles?.[0]?.name === 'DEO' || store.user?.role === 'Center In-charge') {
-                router.push('/quick-links');
+                router.push('/app/quick-links');
             } else if (store.user?.role === 'AC') {
                 router.push({ name: 'applications.view', params: { status: 'submitted' } });
             } else if (store.user?.role === 'DC') {
                 router.push({ name: 'applications.view', params: { status: 'verified' } });
             } else {
-                router.push('/');
+                router.push('/app');
             }
         } else {
             Swal.fire({

@@ -1,88 +1,88 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import { useAppStore } from '@/stores';
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
+import {useAppStore} from '@/stores';
 import appSetting from '@/app-setting';
 
 const routes: RouteRecordRaw[] = [
     {
-        path: '/login',
+        path: '/app/login',
         name: 'login',
         component: () => import('@/views/login.vue'),
-        meta: { layout: 'auth', requiresAuth: false, isAuthPage: true }
+        meta: {layout: 'auth', requiresAuth: false, isAuthPage: true}
     },
     {
-        path: '/enable-two-factor',
+        path: '/app/enable-two-factor',
         name: 'enable-two-factir',
         component: () => import('@/views/two-factor.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/quick-links',
+        path: '/app/quick-links',
         name: 'Quick Links',
         component: () => import('@/views/dashboard/quick-links.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/',
+        path: '/app/',
         name: 'dashboard.view',
         component: () => import('@/views/dashboard/index.vue'),
-        meta: { requiresAuth: true ,skipPermissionCheck: true}
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/online-applications',
+        path: '/app/online-applications',
         name: 'online-applications.view',
         component: () => import('@/views/applications/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/applications/:status?',
+        path: '/app/applications/:status?',
         name: 'applications.view',
         component: () => import('@/views/applications/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/drafted-applications',
+        path: '/app/drafted-applications',
         name: 'drafted-applications.view',
         component: () => import('@/views/applications/draftedApplications.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/applications/create',
+        path: '/app/applications/create',
         name: 'applications.create',
         component: () => import('@/views/applications/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/applications/edit/:uuid',
+        path: '/app/applications/edit/:uuid',
         name: 'applications.edit',
         component: () => import('@/views/applications/edit.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/applications/edit-draft/:draftId',
+        path: '/app/applications/edit-draft/:draftId',
         name: 'applications.edit-draft',
         component: () => import('@/views/applications/edit-draft.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/applications/forward/:id',
+        path: '/app/applications/forward/:id',
         name: 'applications.forward',
         component: () => import('@/views/applications/forward.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/archived/scanning-form/all',
+        path: '/app/archived/scanning-form/all',
         name: 'archived.scanning-form.all',
         component: () => import('@/views/archived/index.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/archived/verification-form/all',
+        path: '/app/archived/verification-form/all',
         name: 'archived.verification-form.all',
         component: () => import('@/views/archived/indexVerfication.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/archivedReport',
+        path: '/app/archivedReport',
         name: 'archived.report',
         component: () => import('@/views/archived/archivedReport.vue'),
         meta: {
@@ -92,345 +92,345 @@ const routes: RouteRecordRaw[] = [
         }
     },
     {
-        path: '/center',
+        path: '/app/center',
         name: 'centers.view',
         component: () => import('@/views/center/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/center/create',
+        path: '/app/center/create',
         name: 'centers.create',
         component: () => import('@/views/center/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/center/edit/:id',
+        path: '/app/center/edit/:id',
         name: 'centers.edit',
         component: () => import('@/views/center/edit.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/center/delete/:id',
+        path: '/app/center/delete/:id',
         name: 'centers.delete',
         component: () => import('@/views/center/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/admin/roles',
+        path: '/app/admin/roles',
         name: 'roles.view',
         component: () => import('@/views/roles/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/role/create',
+        path: '/app/role/create',
         name: 'roles.create',
         component: () => import('@/views/roles/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
 
     {
-        path: '/role/edit/:id',
+        path: '/app/role/edit/:id',
         name: 'roles.edit',
         component: () => import('@/views/roles/edit.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/services-center',
+        path: '/app/services-center',
         name: 'services-centers.view',
         component: () => import('@/views/servicescenter/index.vue'),
-        meta: { requiresAuth: true, title: 'Services Center' }
+        meta: {requiresAuth: true, title: 'Services Center'}
     },
     {
-        path: '/services-center/create',
+        path: '/app/services-center/create',
         name: 'services-centers.create',
         component: () => import('@/views/servicescenter/create.vue'),
-        meta: { requiresAuth: true, title: 'Create Services Center' }
+        meta: {requiresAuth: true, title: 'Create Services Center'}
     },
     {
-        path: '/services-center/edit/:id',
+        path: '/app/services-center/edit/:id',
         name: 'services-centers.edit',
         component: () => import('@/views/servicescenter/edit.vue'),
-        meta: { requiresAuth: true, title: 'Edit Services Center' }
+        meta: {requiresAuth: true, title: 'Edit Services Center'}
     },
 
     {
-        path: '/services',
+        path: '/app/services',
         name: 'services.view',
         component: () => import('@/views/services/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/services/create',
+        path: '/app/services/create',
         name: 'services.create',
         component: () => import('@/views/services/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/services/edit/:id',
+        path: '/app/services/edit/:id',
         name: 'services.edit',
         component: () => import('@/views/services/edit.vue')
     },
     {
-        path: '/users',
+        path: '/app/users',
         name: 'users.view',
         component: () => import('@/views/user/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/user/create',
+        path: '/app/user/create',
         name: 'users.create',
         component: () => import('@/views/user/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/user/edit/:id',
+        path: '/app/user/edit/:id',
         name: 'users.edit',
         component: () => import('@/views/user/edit.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/departments',
+        path: '/app/departments',
         name: 'departments.view',
         component: () => import('@/views/department/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/department/create',
+        path: '/app/department/create',
         name: 'departments.create',
         component: () => import('@/views/department/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/department/edit/:id',
+        path: '/app/department/edit/:id',
         name: 'departments.edit',
         component: () => import('@/views/department/edit.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/department/delete/:id',
+        path: '/app/department/delete/:id',
         name: 'departments.delete',
         component: () => import('@/views/department/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/service-instruction',
+        path: '/app/service-instruction',
         name: 'service-instructions.view',
         component: () => import('@/views/serviceInstruction/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/service-instruction/create',
+        path: '/app/service-instruction/create',
         name: 'service-instructions.create',
         component: () => import('@/views/serviceInstruction/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/service-instruction/edit/:id',
+        path: '/app/service-instruction/edit/:id',
         name: 'service-instructions.edit',
         component: () => import('@/views/serviceInstruction/edit.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/templates',
+        path: '/app/templates',
         name: 'templates.view',
         component: () => import('@/views/template/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/templates/create',
+        path: '/app/templates/create',
         name: 'templates.create',
         component: () => import('@/views/template/templateform.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/templates/:id/edit',
+        path: '/app/templates/:id/edit',
         name: 'templates.edit',
         component: () => import('@/views/template/templateform.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/demography/:type',
+        path: '/app/demography/:type',
         name: 'demographies.view',
         component: () => import('@/views/demography/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/demography/:type/create',
+        path: '/app/demography/:type/create',
         name: 'demographies.create',
         component: () => import('@/views/demography/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/demography/:type/edit/:id',
+        path: '/app/demography/:type/edit/:id',
         name: 'demographies.edit',
         component: () => import('@/views/demography/edit.vue'),
         props: true,
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/type/:type',
+        path: '/app/type/:type',
         name: 'types.view',
         component: () => import('@/views/types/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/type/:type/create',
+        path: '/app/type/:type/create',
         name: 'types.create',
         component: () => import('@/views/types/create.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/type/:type/edit/:id',
+        path: '/app/type/:type/edit/:id',
         name: 'types.edit',
         component: () => import('@/views/types/edit.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
     {
-        path: '/required-documents',
+        path: '/app/required-documents',
         name: 'required-documents.view',
         component: () => import('@/views/requiredDocuments/index.vue'),
-        meta: { requiresAuth: true }
+        meta: {requiresAuth: true}
     },
 
     {
-        path: '/form/:id',
+        path: '/app/form/:id',
         name: 'admin-form',
         component: () => import('@/views/viewform/adminform.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
 
     {
-        path: '/certificates/:uuid',
+        path: '/app/certificates/:uuid',
         name: 'certificates-pdf',
         component: () => import('@/views/applications/certificates.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
 
     {
-        path: '/application-form/:id',
+        path: '/app/application-form/:id',
         name: 'view-form-domicile',
         component: () => import('@/views/viewform/domicile/viewform.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/final-form-domicile/:id',
+        path: '/app/final-form-domicile/:id',
         name: 'final-form-domicile',
         component: () => import('@/views/viewform/domicile/finalform.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/final-form-state/:id',
+        path: '/app/final-form-state/:id',
         name: 'final-form-state',
         component: () => import('@/views/viewform/state/final-form.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/print-form-domicile/:id',
+        path: '/app/print-form-domicile/:id',
         name: 'print-form-domicile',
         component: () => import('@/views/viewform/domicile/print-application-form.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/print-form-state/:id',
+        path: '/app/print-form-state/:id',
         name: 'print-form-state',
         component: () => import('@/views/viewform/state/print-application-form.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/domicileviewformtesting',
+        path: '/app/domicileviewformtesting',
         name: 'view-form-testing',
         component: () => import('@/views/viewform/testing-forms/domicile/viewform.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/domicilefinalformtesting',
+        path: '/app/domicilefinalformtesting',
         name: 'final-form-testing',
         component: () => import('@/views/viewform/testing-forms/domicile/finalform.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/domicileprintformtesting',
+        path: '/app/domicileprintformtesting',
         name: 'print-form',
         component: () => import('@/views/viewform/testing-forms/domicile/printform.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/statefinalformtesting',
+        path: '/app/statefinalformtesting',
         name: 'state-final-form-testing',
         component: () => import('@/views/viewform/testing-forms/state/final-form.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/stateprintformtesting',
+        path: '/app/stateprintformtesting',
         name: 'state-print-form-testing',
         component: () => import('@/views/viewform/testing-forms/state/print-form.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/additional-charges',
+        path: '/app/additional-charges',
         name: 'additional-charges.view',
         component: () => import('@/views/additional-charges/index.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/additional-charges/create',
+        path: '/app/additional-charges/create',
         name: 'additional-charges.create',
         component: () => import('@/views/additional-charges/create.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/additional-charges/edit/:id',
+        path: '/app/additional-charges/edit/:id',
         name: 'additional-charges.edit',
         component: () => import('@/views/additional-charges/edit.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/profile',
+        path: '/app/profile',
         name: 'profile.user',
         component: () => import('@/views/profile/index.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/profile/edit',
+        path: '/app/profile/edit',
         name: 'profile.user.edit',
         component: () => import('@/views/profile/edit.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/change-password',
+        path: '/app/change-password',
         name: 'change.password',
         component: () => import('@/views/profile/changepassword.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/backups',
+        path: '/app/backups',
         name: 'backups.view',
         component: () => import('@/views/backup/index.vue'),
-        meta: { requiresAuth: true, title: 'Backups' }
+        meta: {requiresAuth: true, title: 'Backups'}
     },
     {
-        path: '/schedule-jobs',
+        path: '/app/schedule-jobs',
         name: 'schedule-jobs.view',
         component: () => import('@/views/schedulejobs/index.vue'),
-        meta: { requiresAuth: true, title: 'Schedule jobs' }
+        meta: {requiresAuth: true, title: 'Schedule jobs'}
     },
     {
-        path: '/api-tokens',
+        path: '/app/api-tokens',
         name: 'api-tokens.view',
         component: () => import('@/views/tokens.vue'),
-        meta: { requiresAuth: true, title: 'API Tokens' }
+        meta: {requiresAuth: true, title: 'API Tokens'}
     },
     {
-        path: '/unauthorized-access',
+        path: '/app/unauthorized-access',
         name: 'Unauthorized Access',
         component: () => import('@/views/pages/error403.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     },
     {
-        path: '/:pathMatch(.*)*',
+        path: '/app/:pathMatch(.*)*',
         name: 'not-found',
         component: () => import('@/views/pages/error404.vue'),
-        meta: { requiresAuth: true, skipPermissionCheck: true }
+        meta: {requiresAuth: true, skipPermissionCheck: true}
     }
 ];
 const router = createRouter({
@@ -441,7 +441,7 @@ const router = createRouter({
         if (savedPosition) {
             return savedPosition;
         } else {
-            return { left: 0, top: 0 };
+            return {left: 0, top: 0};
         }
     }
 });
@@ -458,7 +458,7 @@ router.beforeEach((to, from, next) => {
 
     // Check if route requires authentication
     if (to.meta.requiresAuth && !store.isAuthenticated) {
-        next('/login');
+        next('/app/login');
         return;
     }
 
@@ -469,15 +469,15 @@ router.beforeEach((to, from, next) => {
         }
         const routeName = to.name as string;
         const hasPermission = permissions?.includes(routeName) || false;
-        if (!hasPermission && to.name!=='drafted-applications.view') {
-            next('/unauthorized-access');
+        if (!hasPermission && to.name !== 'drafted-applications.view') {
+            next('/app/unauthorized-access');
             return;
         }
     }
 
     // If user is logged in and trying to access auth pages, redirect to dashboard
     if (to.meta.isAuthPage && store.isAuthenticated) {
-        next('/');
+        next('/app/');
         return;
     }
 

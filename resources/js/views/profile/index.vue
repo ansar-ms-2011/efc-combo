@@ -16,7 +16,7 @@
             <div class="">
                 <div class="flex items-center justify-between mb-5">
                     <h5 class="font-semibold text-lg">Profile</h5>
-                    <router-link to="/profile/edit" class="btn btn-primary p-2 rounded-full">
+                    <router-link to="/app/profile/edit" class="btn btn-primary p-2 rounded-full">
                         <icon-pencil-paper />
                     </router-link>
                 </div>

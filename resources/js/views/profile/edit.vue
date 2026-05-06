@@ -2,7 +2,7 @@
     <div class="p-6 min-h-screen">
         <ul class="flex space-x-2 rtl:space-x-reverse mb-5 text-gray-600 text-sm">
             <li>
-                <router-link to="/profile" class="hover:underline">Users</router-link>
+                <router-link to="/app/profile" class="hover:underline">Users</router-link>
             </li>
             <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
                 <span>Edit Profile</span>
@@ -183,7 +183,7 @@ const updateProfile = async () => {
             showConfirmButton: false,
             timer: 1500
         }).then(() => {
-            router.push('/profile');
+            router.push('/app/profile');
         });
 
     } catch (error: any) {

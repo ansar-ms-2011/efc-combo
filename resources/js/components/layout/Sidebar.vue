@@ -4,16 +4,17 @@
             class="sidebar fixed min-h-screen top-0 bottom-0 w-[260px] shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] z-50 trion-all duration-300">
             <div class="bg-white dark:bg-[#0e1726] h-full">
                 <div class="flex justify-between items-center px-4 py-3">
-                    <router-link to="/" class="main-logo flex items-center shrink-0">
-                        <img class="w-8 ml-[5px] flex-none" :src="appLogo" alt="" />
-                        <span class="text-2xl ltr:ml-1.5 rtl:mr-1.5 font-semibold align-middle lg:inline dark:text-white-light">EFC-AJK</span>
+                    <router-link to="/app" class="main-logo flex items-center shrink-0">
+                        <img class="w-8 ml-[5px] flex-none" :src="appLogo" alt=""/>
+                        <span
+                            class="text-2xl ltr:ml-1.5 rtl:mr-1.5 font-semibold align-middle lg:inline dark:text-white-light">EFC-AJK</span>
                     </router-link>
                     <a
                         href="javascript:;"
                         class="collapse-icon w-8 h-8 rounded-full flex items-center hover:bg-gray-500/10 dark:hover:bg-dark-light/10 dark:text-white-light transition duration-300 rtl:rotate-180 hover:text-primary"
                         @click="store.toggleSidebar()"
                     >
-                        <icon-carets-down class="m-auto rotate-90" />
+                        <icon-carets-down class="m-auto rotate-90"/>
                     </a>
                 </div>
 
@@ -30,7 +31,8 @@
                             <router-link :to="{ name: 'dashboard.view' }" class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-house-chimney-window fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
                                         {{ $t('dashboard') }}
                                     </span>
                                 </div>
@@ -42,7 +44,8 @@
                             <router-link :to="{ name: 'Quick Links' }" class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-link fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
                                         {{ $t('quick-links') }}
                                     </span>
                                 </div>
@@ -54,7 +57,7 @@
                             <router-link :to="{ name: 'applications.view', params: { status: 'online' } }"
                                          class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
-                                    <i class="fa-solid fa-globe-asia fa-lg" />
+                                    <i class="fa-solid fa-globe-asia fa-lg"/>
                                     <span
                                         class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
                                             $t('Online Applications')
@@ -68,7 +71,7 @@
                                          @click="toggleMobileMenu">
                                 <div class="flex items-center justify-between w-full">
                                     <div class="flex items-center">
-                                        <i class="fa-solid fa-drafting-compass fa-lg" />
+                                        <i class="fa-solid fa-drafting-compass fa-lg"/>
                                         <span
                                             class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
                                             {{ $t('drafted-applications') }}
@@ -89,99 +92,122 @@
 
                         <!-- All Applications -->
                         <li class="menu nav-item" v-if="store.user?.permissions?.includes('applications-all.view')">
-                            <router-link :to="{ name: 'applications.view', params: { status: 'all' } }" class="group" @click="toggleMobileMenu">
+                            <router-link :to="{ name: 'applications.view', params: { status: 'all' } }" class="group"
+                                         @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-folder-open fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
-                                        $t('Applications')
-                                    }}</span>
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
+                                            $t('Applications')
+                                        }}</span>
                                 </div>
                             </router-link>
                         </li>
 
                         <!-- Pending Applications -->
                         <li class="menu nav-item" v-if="store.user?.permissions?.includes('applications-pending.view')">
-                            <router-link :to="{ name: 'applications.view', params: { status: 'pending' } }" class="group" @click="toggleMobileMenu">
+                            <router-link :to="{ name: 'applications.view', params: { status: 'pending' } }"
+                                         class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-clock fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
-                                        $t('Pending Applications')
-                                    }}</span>
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
+                                            $t('Pending Applications')
+                                        }}</span>
                                 </div>
                             </router-link>
                         </li>
 
                         <!-- Applications for Verification -->
-                        <li class="menu nav-item" v-if="store.user?.permissions?.includes('applications-for-verification.view')">
-                            <router-link :to="{ name: 'applications.view', params: { status: 'submitted' } }" class="group" @click="toggleMobileMenu">
+                        <li class="menu nav-item"
+                            v-if="store.user?.permissions?.includes('applications-for-verification.view')">
+                            <router-link :to="{ name: 'applications.view', params: { status: 'submitted' } }"
+                                         class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-circle-check fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
-                                        $t('Applications for Verification')
-                                    }}</span>
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
+                                            $t('Applications for Verification')
+                                        }}</span>
                                 </div>
                             </router-link>
                         </li>
 
                         <!-- Applications for Approval -->
-                        <li class="menu nav-item" v-if="store.user?.permissions?.includes('applications-for-approval.view')">
-                            <router-link :to="{ name: 'applications.view', params: { status: 'verified' } }" class="group" @click="toggleMobileMenu">
+                        <li class="menu nav-item"
+                            v-if="store.user?.permissions?.includes('applications-for-approval.view')">
+                            <router-link :to="{ name: 'applications.view', params: { status: 'verified' } }"
+                                         class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-square-check fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
-                                        $t('Applications for Approval')
-                                    }}</span>
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
+                                            $t('Applications for Approval')
+                                        }}</span>
                                 </div>
                             </router-link>
                         </li>
 
                         <!-- Ready For Printing -->
-                        <li class="menu nav-item" v-if="store.user?.permissions?.includes('applications-for-printing.view')">
-                            <router-link :to="{ name: 'applications.view', params: { status: 'approved' } }" class="group" @click="toggleMobileMenu">
+                        <li class="menu nav-item"
+                            v-if="store.user?.permissions?.includes('applications-for-printing.view')">
+                            <router-link :to="{ name: 'applications.view', params: { status: 'approved' } }"
+                                         class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-print fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
-                                        $t('Ready for Printing')
-                                    }}</span>
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
+                                            $t('Ready for Printing')
+                                        }}</span>
                                 </div>
                             </router-link>
                         </li>
 
                         <!-- Ready to Deliver -->
-                        <li class="menu nav-item" v-if="store.user?.permissions?.includes('applications-for-delivery.view')">
-                            <router-link :to="{ name: 'applications.view', params: { status: 'ready_for_delivery' } }" class="group" @click="toggleMobileMenu">
+                        <li class="menu nav-item"
+                            v-if="store.user?.permissions?.includes('applications-for-delivery.view')">
+                            <router-link :to="{ name: 'applications.view', params: { status: 'ready_for_delivery' } }"
+                                         class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-truck-fast fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
-                                        $t('Applications for Delivery')
-                                    }}</span>
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
+                                            $t('Applications for Delivery')
+                                        }}</span>
                                 </div>
                             </router-link>
                         </li>
 
                         <!-- Delivered -->
-                        <li class="menu nav-item" v-if="store.user?.permissions?.includes('applications-delivered.view')">
-                            <router-link :to="{ name: 'applications.view', params: { status: 'delivered' } }" class="nav-link group" @click="toggleMobileMenu">
+                        <li class="menu nav-item"
+                            v-if="store.user?.permissions?.includes('applications-delivered.view')">
+                            <router-link :to="{ name: 'applications.view', params: { status: 'delivered' } }"
+                                         class="nav-link group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-box-archive fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
-                                        $t('Delivered Applications')
-                                    }}</span>
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{{
+                                            $t('Delivered Applications')
+                                        }}</span>
                                 </div>
                             </router-link>
                         </li>
 
                         <!-- Objected -->
-                        <li class="menu nav-item" v-if="store.user?.permissions?.includes('applications-objected.view')">
-                            <router-link :to="{ name: 'applications.view', params: { status: 'objected' } }" class="nav-link group" @click="toggleMobileMenu">
+                        <li class="menu nav-item"
+                            v-if="store.user?.permissions?.includes('applications-objected.view')">
+                            <router-link :to="{ name: 'applications.view', params: { status: 'objected' } }"
+                                         class="nav-link group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-repeat fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark"
-                                        >{{ $t('Objected Applications') }}
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark"
+                                    >{{ $t('Objected Applications') }}
                                     </span>
                                     <span v-if="dashboardCounts?.objected > 0" class="ml-3 relative flex h-2 w-2">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75" />
-                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-400" />
+                                        <span
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"/>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-400"/>
                                     </span>
                                 </div>
                             </router-link>
@@ -197,19 +223,21 @@
                             >
                                 <span class="flex items-center">
                                     <i class="fa-solid fa-gear fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
                                         {{ $t('settings') }}
                                     </span>
                                 </span>
                                 <span :class="{ 'rtl:rotate-90 -rotate-90': activeDropdown !== 'settings' }">
-                                    <icon-caret-down />
+                                    <icon-caret-down/>
                                 </span>
                             </button>
                             <vue-collapsible :isOpen="activeDropdown === 'settings'">
                                 <ul class="sub-menu text-gray-500">
                                     <!-- Employee Registration -->
                                     <li v-if="store.user?.permissions?.includes('users.view')">
-                                        <router-link :to="{ name: 'users.view' }" class="group" @click="toggleMobileMenu">
+                                        <router-link :to="{ name: 'users.view' }" class="group"
+                                                     @click="toggleMobileMenu">
                                             {{ $t('user-management') }}
                                         </router-link>
                                     </li>
@@ -240,8 +268,9 @@
                                         </router-link>
                                     </li>
                                     <li v-if="store.user?.permissions?.includes('service-instructions.view')">
-                                        <router-link :to="{ name: 'service-instructions.view' }" @click="toggleMobileMenu"
-                                            >{{ $t('Service Instruction') }}
+                                        <router-link :to="{ name: 'service-instructions.view' }"
+                                                     @click="toggleMobileMenu"
+                                        >{{ $t('Service Instruction') }}
                                         </router-link>
                                     </li>
                                     <li v-if="store.user?.permissions?.includes('templates.view')">
@@ -253,64 +282,76 @@
                                     <li v-if="store.user?.permissions?.includes('demographies.view')">
                                         <a href="javascript:;" @click="demographyMenuOpen = !demographyMenuOpen">
                                             <span class="ltr:pr-3 rtl:pl-3">{{ $t('Demography') }}</span>
-                                            <i :class="demographyMenuOpen ? 'fa fa-chevron-down' : 'fa fa-chevron-right'" class="text-gray-500 text-xs"></i>
+                                            <i :class="demographyMenuOpen ? 'fa fa-chevron-down' : 'fa fa-chevron-right'"
+                                               class="text-gray-500 text-xs"></i>
                                         </a>
 
                                         <ul v-show="demographyMenuOpen" class="pl-8 mt-1 space-y-1">
                                             <li>
-                                                <router-link :to="{ name: 'demographies.view', params: { type: 'COUNTRY' } }">
+                                                <router-link
+                                                    :to="{ name: 'demographies.view', params: { type: 'COUNTRY' } }">
                                                     {{ $t('Country') }}
                                                 </router-link>
                                             </li>
                                             <li>
-                                                <router-link :to="{ name: 'demographies.view', params: { type: 'REGION' } }">
+                                                <router-link
+                                                    :to="{ name: 'demographies.view', params: { type: 'REGION' } }">
                                                     {{ $t('Region') }}
                                                 </router-link>
                                             </li>
                                             <li>
-                                                <router-link :to="{ name: 'demographies.view', params: { type: 'DISTRICT' } }">
+                                                <router-link
+                                                    :to="{ name: 'demographies.view', params: { type: 'DISTRICT' } }">
                                                     {{ $t('District') }}
                                                 </router-link>
                                             </li>
                                             <li>
-                                                <router-link :to="{ name: 'demographies.view', params: { type: 'TEHSIL' } }">
+                                                <router-link
+                                                    :to="{ name: 'demographies.view', params: { type: 'TEHSIL' } }">
                                                     {{ $t('Tehsil') }}
                                                 </router-link>
                                             </li>
                                             <li>
-                                                <router-link :to="{ name: 'demographies.view', params: { type: 'CITY' } }">
+                                                <router-link
+                                                    :to="{ name: 'demographies.view', params: { type: 'CITY' } }">
                                                     {{ $t('City') }}
                                                 </router-link>
                                             </li>
                                             <li>
-                                                <router-link :to="{ name: 'demographies.view', params: { type: 'UNION_COUNCIL' } }">
+                                                <router-link
+                                                    :to="{ name: 'demographies.view', params: { type: 'UNION_COUNCIL' } }">
                                                     {{ $t('UC') }}
                                                 </router-link>
                                             </li>
                                         </ul>
                                     </li>
                                     <li v-if="store.user?.permissions?.includes('types.view')">
-                                        <router-link :to="{ name: 'types.view', params: { type: 'group' } }" @click="toggleMobileMenu"
-                                            >{{ $t('Dropdown Groups') }}
+                                        <router-link :to="{ name: 'types.view', params: { type: 'group' } }"
+                                                     @click="toggleMobileMenu"
+                                        >{{ $t('Dropdown Groups') }}
                                         </router-link>
                                     </li>
                                     <li v-if="store.user?.permissions?.includes('types.view')">
-                                        <router-link :to="{ name: 'types.view', params: { type: 'item' } }" @click="toggleMobileMenu"
-                                            >{{ $t('Dropdown Items') }}
+                                        <router-link :to="{ name: 'types.view', params: { type: 'item' } }"
+                                                     @click="toggleMobileMenu"
+                                        >{{ $t('Dropdown Items') }}
                                         </router-link>
                                     </li>
                                     <li v-if="store.user?.permissions?.includes('required-documents.view')">
-                                        <router-link to="/required-documents" @click="toggleMobileMenu">
+                                        <router-link
+                                            :to="{ name: 'required-documents.view', params: { type: 'group' } }"
+                                            @click="toggleMobileMenu">
                                             {{ $t('required-documents') }}
                                         </router-link>
                                     </li>
 
                                     <li
                                         v-if="
-                                            store.user?.permissions?.includes('backups.view') && store.user?.roles?.some((role) => role.name === 'Super Admin')
-                                        "
+                                            store.user?.permissions?.includes('backups.view') && store.user?.roles?.some((role) => role.name === 'Super Admin')"
                                     >
-                                        <router-link to="/backups" @click="toggleMobileMenu">{{ $t('backups') }} </router-link>
+                                        <router-link :to="{ name: 'backups.view', params: { type: 'group' } }"
+                                                     @click="toggleMobileMenu">{{ $t('backups') }}
+                                        </router-link>
                                     </li>
                                     <li
                                         v-if="
@@ -318,7 +359,9 @@
                                             store.user?.roles?.some((role) => role.name === 'Super Admin')
                                         "
                                     >
-                                        <router-link :to="{ name: 'schedule-jobs.view' }" @click="toggleMobileMenu">{{ $t('Schedule-Jobs') }} </router-link>
+                                        <router-link :to="{ name: 'schedule-jobs.view' }" @click="toggleMobileMenu">
+                                            {{ $t('Schedule-Jobs') }}
+                                        </router-link>
                                     </li>
                                     <li
                                         v-if="
@@ -326,7 +369,9 @@
                                             store.user?.roles?.some((role) => role.name === 'Super Admin')
                                         "
                                     >
-                                        <router-link :to="{ name: 'api-tokens.view' }" @click="toggleMobileMenu">{{ $t('API-Tokens') }} </router-link>
+                                        <router-link :to="{ name: 'api-tokens.view' }" @click="toggleMobileMenu">
+                                            {{ $t('API-Tokens') }}
+                                        </router-link>
                                     </li>
                                 </ul>
                             </vue-collapsible>
@@ -334,12 +379,14 @@
 
                         <!-- Archived -->
                         <!-- Dashboard Link -->
-                        <li class="menu nav-item" v-if="store.user?.role === 'Supervisor' || store.user?.role === 'Scanner'">
+                        <li class="menu nav-item"
+                            v-if="store.user?.role === 'Supervisor' || store.user?.role === 'Scanner'">
                             <router-link :to="{ name: 'dashboard.view' }" class="group" @click="toggleMobileMenu">
                                 <div class="flex items-center">
                                     <!-- Styling same as other dashboard links -->
                                     <i class="fa-solid fa-house-chimney-window fa-lg text-primary"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
                                         {{ $t('dashboard') }}
                                     </span>
                                 </div>
@@ -357,12 +404,13 @@
                             >
                                 <span class="flex items-center">
                                     <i class="fa-solid fa-toolbox fa-lg"></i>
-                                    <span class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
+                                    <span
+                                        class="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">
                                         {{ $t('Scanning') }}
                                     </span>
                                 </span>
                                 <span :class="{ 'rtl:rotate-90 -rotate-90': activeDropdown !== 'scanning' }">
-                                    <icon-caret-down />
+                                    <icon-caret-down/>
                                 </span>
                             </button>
 
@@ -370,27 +418,33 @@
                                 <ul class="sub-menu text-gray-500">
                                     <!-- Archived Scanning Form -->
                                     <li v-if="hasPermission('archived-scanner.view')">
-                                        <router-link to="/archived/scanning-form/all" @click="toggleMobileMenu" class="flex items-center">
+                                        <router-link to="/app/archived/scanning-form/all" @click="toggleMobileMenu"
+                                                     class="flex items-center">
                                             <span>{{ $t('Scanning-Form') }}</span>
                                             <span v-if="dashboardCounts?.objected > 0" class="flex h-2 w-2 relative">
-                                                <span class="animate-ping absolute h-full w-full rounded-full bg-red-600 opacity-75"></span>
-                                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-400"></span>
+                                                <span
+                                                    class="animate-ping absolute h-full w-full rounded-full bg-red-600 opacity-75"></span>
+                                                <span
+                                                    class="relative inline-flex rounded-full h-2 w-2 bg-red-400"></span>
                                             </span>
                                         </router-link>
                                     </li>
 
                                     <!-- Archived Verification Form -->
                                     <li v-if="hasPermission('archived-verification.view')">
-                                        <router-link to="/archived/verification-form/all" @click="toggleMobileMenu" class="flex items-center">
+                                        <router-link to="/app/archived/verification-form/all" @click="toggleMobileMenu"
+                                                     class="flex items-center">
                                             <span>{{ $t('Verification-Form') }}</span>
                                             <span v-if="dashboardCounts?.objected > 0" class="flex h-2 w-2 relative">
-                                                <span class="animate-ping absolute h-full w-full rounded-full bg-red-600 opacity-75"></span>
-                                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-400"></span>
+                                                <span
+                                                    class="animate-ping absolute h-full w-full rounded-full bg-red-600 opacity-75"></span>
+                                                <span
+                                                    class="relative inline-flex rounded-full h-2 w-2 bg-red-400"></span>
                                             </span>
                                         </router-link>
                                     </li>
                                     <li v-if="store.user?.role !== 'Scanner'">
-                                        <router-link to="/archivedReport" @click="toggleMobileMenu"
+                                        <router-link to="/app/archivedReport" @click="toggleMobileMenu"
                                                      class="flex items-center">
                                             <span>{{ $t('Archived-Report') }}</span>
                                             <!-- Red notification dot -->
@@ -416,10 +470,10 @@
                     >
                         <span class="flex items-center justify-center gap-2">
                             <template v-if="!isLoading">
-                                <i class="fa-solid fa-refresh" /> <span>Refresh local data</span>
+                                <i class="fa-solid fa-refresh"/> <span>Refresh local data</span>
                             </template>
                             <template v-else>
-                                <p class=""><i class="fa fa-refresh fa-spin" /> Loading data...</p>
+                                <p class=""><i class="fa fa-refresh fa-spin"/> Loading data...</p>
                             </template>
                         </span>
                     </button>
@@ -430,108 +484,108 @@
 </template>
 
 <script setup>
-    import { onMounted, ref, watch } from 'vue';
-    import { useRoute, useRouter } from 'vue-router';
-    import axios from 'axios';
+import {onMounted, ref, watch} from 'vue';
+import {useRoute, useRouter} from 'vue-router';
+import axios from 'axios';
 
-    import { useAppStore } from '@/stores';
-    import VueCollapsible from 'vue-height-collapsible/vue3';
-    import { useApplicationForm } from '@/composables/useApplicationForm.js';
-    import IconCaretsDown from '@/components/icon/icon-carets-down.vue';
-    import IconCaretDown from '@/components/icon/icon-caret-down.vue';
-    import { storeToRefs } from 'pinia';
-    import appLogo from '@/assets/images/logo.png';
+import {useAppStore} from '@/stores';
+import VueCollapsible from 'vue-height-collapsible/vue3';
+import {useApplicationForm} from '@/composables/useApplicationForm.js';
+import IconCaretsDown from '@/components/icon/icon-carets-down.vue';
+import IconCaretDown from '@/components/icon/icon-caret-down.vue';
+import {storeToRefs} from 'pinia';
+import appLogo from '@/assets/images/logo.png';
 
 
-    const store = useAppStore();
-    const router = useRouter();
-    const route = useRoute();
-    const { isLoading } = storeToRefs(store);
-    const activeDropdown = ref(null);
-    const dashboardCounts = ref(null);
-    const demographyMenuOpen = ref(false);
-    const dbManager = useApplicationForm();
-    //Update the application form count in the store
-    dbManager.getDraftsCount().then(count => {
-        store.updateDraftCount(count);
-    });
-    const hasAnySettingsPermission = () => {
-        const settingsPermissions = [
-            'users.view',
-            'roles.view',
-            'departments.view',
-            'centers.view',
-            'services.view',
-            'services-centers.view',
-            'service-instructions.view',
-            'demographies.view',
-            'templates.view',
-            'types.view',
-            'required-documents.view',
-            'backups.view',
-        ];
+const store = useAppStore();
+const router = useRouter();
+const route = useRoute();
+const {isLoading} = storeToRefs(store);
+const activeDropdown = ref(null);
+const dashboardCounts = ref(null);
+const demographyMenuOpen = ref(false);
+const dbManager = useApplicationForm();
+//Update the application form count in the store
+dbManager.getDraftsCount().then(count => {
+    store.updateDraftCount(count);
+});
+const hasAnySettingsPermission = () => {
+    const settingsPermissions = [
+        'users.view',
+        'roles.view',
+        'departments.view',
+        'centers.view',
+        'services.view',
+        'services-centers.view',
+        'service-instructions.view',
+        'demographies.view',
+        'templates.view',
+        'types.view',
+        'required-documents.view',
+        'backups.view',
+    ];
 
-        return settingsPermissions.some((permission) => store.user?.permissions?.includes(permission));
-    };
+    return settingsPermissions.some((permission) => store.user?.permissions?.includes(permission));
+};
 
-    const fetchDashboardCounts = async () => {
-        const res = await axios.get('/api/dashboard-counts');
-        dashboardCounts.value = res.data;
-    };
+const fetchDashboardCounts = async () => {
+    const res = await axios.get('/api/dashboard-counts');
+    dashboardCounts.value = res.data;
+};
 
-    const getFreshDropdownData = async () => {
-        await store.loadDropdowns(true); // force refresh
-    };
+const getFreshDropdownData = async () => {
+    await store.loadDropdowns(true); // force refresh
+};
 
-    // Function to check if current route belongs to settings section
-    const isSettingsRoute = () => {
-        const settingsRoutes = [
-            'users.view',
-            'roles.view',
-            'departments.view',
-            'centers.view',
-            'services.view',
-            'services-centers.view',
-            'service-instructions.view',
-            'demographies.view',
-            'templates.view',
-            'types.view',
-            'required-documents.view',
-            'backups.view',
-            'schedule-jobs.view',
-            'api-tokens.view',
-        ];
-        return settingsRoutes.includes(route.name);
-    };
+// Function to check if current route belongs to settings section
+const isSettingsRoute = () => {
+    const settingsRoutes = [
+        'users.view',
+        'roles.view',
+        'departments.view',
+        'centers.view',
+        'services.view',
+        'services-centers.view',
+        'service-instructions.view',
+        'demographies.view',
+        'templates.view',
+        'types.view',
+        'required-documents.view',
+        'backups.view',
+        'schedule-jobs.view',
+        'api-tokens.view',
+    ];
+    return settingsRoutes.includes(route.name);
+};
 
-    // Function to check if current route belongs to scanning section
-    const isScanningRoute = () => {
-        const scanningRoutes = ['archived-scanner.view', 'archived-verification.view'];
-        // Check if route path includes '/archived/'
-        return scanningRoutes.includes(route.name) || route.path?.includes('/archived/');
-    };
+// Function to check if current route belongs to scanning section
+const isScanningRoute = () => {
+    const scanningRoutes = ['archived-scanner.view', 'archived-verification.view'];
+    // Check if route path includes '/archived/'
+    return scanningRoutes.includes(route.name) || route.path?.includes('/archived/');
+};
 
-    const isDemographyRoute = () => {
-        return route.name === 'demographies.view';
-    };
+const isDemographyRoute = () => {
+    return route.name === 'demographies.view';
+};
 
-    // Watch for route changes to close dropdowns
-    watch(
-        () => route.path,
-        (newPath, oldPath) => {
-            // Close all dropdowns when route changes
-            if (!isSettingsRoute()) {
-                activeDropdown.value = null;
-            }
+// Watch for route changes to close dropdowns
+watch(
+    () => route.path,
+    (newPath, oldPath) => {
+        // Close all dropdowns when route changes
+        if (!isSettingsRoute()) {
+            activeDropdown.value = null;
+        }
 
-            // Optionally, you can keep the dropdown open if still in the same section
-            if (isSettingsRoute()) {
-                activeDropdown.value = 'settings';
-            } else if (isScanningRoute()) {
-                activeDropdown.value = 'scanning';
-            } else {
-                activeDropdown.value = null;
-            }
+        // Optionally, you can keep the dropdown open if still in the same section
+        if (isSettingsRoute()) {
+            activeDropdown.value = 'settings';
+        } else if (isScanningRoute()) {
+            activeDropdown.value = 'scanning';
+        } else {
+            activeDropdown.value = null;
+        }
 
         // keep demography menu open if user is on demography page
         if (isDemographyRoute()) {
@@ -542,65 +596,65 @@
 
     });
 
-    // Also watch for route name changes
-    watch(
-        () => route.name,
-        () => {
-            if (!isSettingsRoute()) {
-                activeDropdown.value = null;
-            }
-
-            if (isSettingsRoute()) {
-                activeDropdown.value = 'settings';
-            } else if (isScanningRoute()) {
-                activeDropdown.value = 'scanning';
-            } else {
-                activeDropdown.value = null;
-            }
-
-        if (isDemographyRoute()) {
-            demographyMenuOpen.value = true;
+// Also watch for route name changes
+watch(
+    () => route.name,
+    () => {
+        if (!isSettingsRoute()) {
+            activeDropdown.value = null;
         }
-    });
 
-    onMounted(() => {
-        fetchDashboardCounts();
-
-        // Set initial active dropdown based on current route
         if (isSettingsRoute()) {
             activeDropdown.value = 'settings';
         } else if (isScanningRoute()) {
             activeDropdown.value = 'scanning';
+        } else {
+            activeDropdown.value = null;
         }
+
         if (isDemographyRoute()) {
             demographyMenuOpen.value = true;
         }
-
-        const selector = document.querySelector('.sidebar ul a[href="' + window.location.pathname + '"]');
-        if (selector) {
-            selector.classList.add('active');
-            const ul = selector.closest('ul.sub-menu');
-            if (ul) {
-                let ele = ul.closest('li.menu').querySelectorAll('.nav-link') || [];
-                if (ele.length) {
-                    ele = ele[0];
-                    setTimeout(() => {
-                        ele.click();
-                    });
-                }
-            }
-        }
     });
 
-    const toggleMobileMenu = () => {
-        if (window.innerWidth < 1024) {
-            store.toggleSidebar();
-        }
-    };
+onMounted(() => {
+    fetchDashboardCounts();
 
-    const hasPermission = (permissionName) => {
-        if (store.user?.role_name === 'Super Admin') return true;
-        const userPermissions = store.user?.permissions || [];
-        return userPermissions.includes(permissionName.toLowerCase());
-    };
+    // Set initial active dropdown based on current route
+    if (isSettingsRoute()) {
+        activeDropdown.value = 'settings';
+    } else if (isScanningRoute()) {
+        activeDropdown.value = 'scanning';
+    }
+    if (isDemographyRoute()) {
+        demographyMenuOpen.value = true;
+    }
+
+    const selector = document.querySelector('.sidebar ul a[href="' + window.location.pathname + '"]');
+    if (selector) {
+        selector.classList.add('active');
+        const ul = selector.closest('ul.sub-menu');
+        if (ul) {
+            let ele = ul.closest('li.menu').querySelectorAll('.nav-link') || [];
+            if (ele.length) {
+                ele = ele[0];
+                setTimeout(() => {
+                    ele.click();
+                });
+            }
+        }
+    }
+});
+
+const toggleMobileMenu = () => {
+    if (window.innerWidth < 1024) {
+        store.toggleSidebar();
+    }
+};
+
+const hasPermission = (permissionName) => {
+    if (store.user?.role_name === 'Super Admin') return true;
+    const userPermissions = store.user?.permissions || [];
+    return userPermissions.includes(permissionName.toLowerCase());
+};
 </script>
