@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",  // Changed from "Node"
+        "strict": true,
+        "jsx": "preserve",  // Changed from "react" for Vue
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "lib": ["ESNext", "DOM"],
+        "skipLibCheck": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["resources/js/*"],  // Changed from "src/*" to match your Vite config
+            "@assets/*": ["resources/js/assets/*"]
+        },
+        "noImplicitAny": false,
+        "allowJs": true,
+        "types": ["vite/client", "node"]  // Added vite/client and node types
+    },
+    "include": [
+        "resources/js/**/*.js",  // Changed from src to resources/js
+        "resources/js/**/*.ts",
+        "resources/js/**/*.d.ts",
+        "resources/js/**/*.tsx",
+        "resources/js/**/*.vue",
+        "vite.config.ts"  // Added vite.config.ts
+    ],
+    "exclude": [  // Added exclude section
+        "node_modules",
+        "public",
+        "storage",
+        "bootstrap"
+    ]
+}

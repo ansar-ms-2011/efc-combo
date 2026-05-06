@@ -1,0 +1,41 @@
+@import 'vue3-perfect-scrollbar/style.css';
+@import 'tippy.js/dist/tippy.css';
+@import '@bhplugin/vue3-datatable/dist/style.css';
+@import 'file-upload-with-preview/dist/file-upload-with-preview.min.css';
+@import 'tailwind.css';
+@import 'urdu-font.css';
+@import 'custom.css';
+
+.vue-form-wizard .wizard-nav-pills {
+    @apply flex gap-2;
+
+}
+.vue-form-wizard .wizard-icon-circle.tab_shape {
+  border-radius: 5px !important;
+  margin-right: 5px !important;
+  /* color: red !important; */
+}
+
+.vue-form-wizard.md .wizard-nav-pills>a .wizard-icon svg{
+    display: none !important;
+}
+
+.animation .min-h-screen{
+    padding-top: 0 !important;
+}
+
+.vue-treeselect__limit-tip{
+    padding: 0px !important;
+}
+.vue-treeselect__multi-value{
+    padding: 0px !important;
+}
+
+.vue-treeselect__limit-tip-text{
+    padding: 0px !important;
+}
+
+
+/* .swal2-popup.swal2-modal.swal2-icon-error.swal2-show{
+    z-index: 100000000 !important;
+} */

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Jameel-Noori-Nastaleeq";
+    src: url("../fonts/jameel-noori-nastaleeq.ttf") format("truetype");
+}
+
+body {
+    font-family: "Jameel-Noori-Nastaleeq" sans-serif;
+}
+
+.font-nastaleeq {
+    font-family: "Jameel-Noori-Nastaleeq", sans-serif;
+}

@@ -1,0 +1,38 @@
+### Test API Endpoints
+### File: api-tests/tokens.http
+
+### Variables
+@baseUrl = http://localhost:8000
+@apiUrl = {{baseUrl}}/api
+@auth_token = 9|6CLMOGIsWPmmQurWT6Y56wS2n5ipj2ug3YEFpW6r40074c70
+
+### ==================== AUTHENTICATION ====================
+
+### Login to get token
+POST {{apiUrl}}/login
+Content-Type: application/json
+
+{
+    "email": "admin@example.com",
+    "password": "password"
+}
+
+> {%
+    // Save token to environment
+    client.global.set("auth_token", response.body.token);
+    client.log("Token saved: " + response.body.token);
+%}
+
+### ==================== TOKEN MANAGEMENT ====================
+
+### List all tokens (GET)
+GET {{apiUrl}}/tokens
+Authorization: Bearer {{auth_token}}
+Accept: application/json
+
+### ==================== SERVICES ====================
+
+### Get all services
+GET {{apiUrl}}/services?page=1&search=test
+Authorization: Bearer {{auth_token}}
+
